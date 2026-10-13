@@ -1,0 +1,12 @@
+allowBuilds:
+  '@nestjs/core': true
+  '@scarf/scarf': true
+  '@swc/core': true
+  argon2: true
+  msgpackr-extract: true
+  unrs-resolver: true
+overrides:
+  form-data: '>=4.0.0'
+  tough-cookie: '>=4.1.3'
+  cookie: '>=0.7.0'
+  tmp: '>=0.2.4'

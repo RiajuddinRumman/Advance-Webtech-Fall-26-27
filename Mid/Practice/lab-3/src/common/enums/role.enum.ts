@@ -7,7 +7,7 @@ export enum Role {
   THESIS_ADMIN = "ROLE_THESIS_ADMIN",
   THESIS_CONVENER = "ROLE_THESIS_CONVENER",
   THESIS_MEMBER = "ROLE_THESIS_MEMBER",
-  THESIS_SUPERVISOR = "ROLE_USER",
+  THESIS_SUPERVISOR = "ROLE_THESIS_SUPERVISOR",
   OPERATOR = "OPERATOR",
 }
 
@@ -22,5 +22,5 @@ export const RoleHierarchy: { [key in Role]: number } = {
   [Role.THESIS_MEMBER]: 2,
   [Role.OPERATOR]: 2,
   [Role.USER]: 1,
-//   [Role.THESIS_SUPERVISOR]: 1,
+  [Role.THESIS_SUPERVISOR]: 1,
 };

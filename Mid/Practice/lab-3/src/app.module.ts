@@ -5,6 +5,7 @@ import { AppController } from "@/src/app.controller";
 import { AppService } from "@/src/app.service";
 import global_config from "@/config/global_config";
 import { BullModule } from "@nestjs/bull";
+import { ItemsModule } from "@/modules/items/items.module";
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { BullModule } from "@nestjs/bull";
     BullModule.forRoot({
       url: process.env.REDIS_URL,
     }),
+    ItemsModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [global_config],

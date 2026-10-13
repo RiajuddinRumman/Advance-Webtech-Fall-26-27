@@ -23,8 +23,7 @@ export function ValidateNested(
       constraints: [],
       options: validationOptions,
       validator: {
-        validate(value: any, args: ValidationArguments) {
-          args.value;
+        validate(value: any, _args: ValidationArguments) {
           if (Array.isArray(value)) {
             for (let i = 0; i < (<Array<any>>value).length; i++) {
               if (validateSync(plainToClass(schema, value[i])).length) {
