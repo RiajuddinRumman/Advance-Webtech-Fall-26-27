@@ -6,6 +6,7 @@ import { AppService } from "@/src/app.service";
 import global_config from "@/config/global_config";
 import { BullModule } from "@nestjs/bull";
 import { UserModule } from "./modules/user/user-module";
+import { TasksModule } from './tasks/tasks.module';
 @Module({
   imports: [
     PostgresDatabaseProviderModule,
@@ -22,6 +23,7 @@ import { UserModule } from "./modules/user/user-module";
       load: [global_config],
     }),
     UserModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
