@@ -5,6 +5,8 @@ import { AppController } from "@/src/app.controller";
 import { AppService } from "@/src/app.service";
 import global_config from "@/config/global_config";
 import { BullModule } from "@nestjs/bull";
+import { UserService } from "./modules/users/users.service";
+import { UserController } from "./modules/users/users.controller";
 
 @Module({
   imports: [
