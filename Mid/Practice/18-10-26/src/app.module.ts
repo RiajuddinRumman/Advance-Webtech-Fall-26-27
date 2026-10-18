@@ -7,10 +7,12 @@ import global_config from "@/config/global_config";
 import { BullModule } from "@nestjs/bull";
 import { UserService } from "./modules/users/users.service";
 import { UserController } from "./modules/users/users.controller";
+import { UserModule } from "./modules/users/users.module";
 
 @Module({
   imports: [
     PostgresDatabaseProviderModule,
+    UserModule,
 
     ConfigModule.forRoot({
       isGlobal: true,

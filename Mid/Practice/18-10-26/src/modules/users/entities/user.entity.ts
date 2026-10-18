@@ -3,7 +3,7 @@ import { Column, CreateDateColumn, Entity,UpdateDateColumn ,PrimaryGeneratedColu
 @Entity({name: "users"})
 export class User{
     @PrimaryGeneratedColumn("uuid")
-    id: string = "";
+      id!: string;
 
     @Column({type: "varchar", length: 255})
     name: string ="";
