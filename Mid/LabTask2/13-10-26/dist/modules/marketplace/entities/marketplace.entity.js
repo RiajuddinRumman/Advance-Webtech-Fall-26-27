@@ -11,11 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Marketplace = void 0;
 const typeorm_1 = require("typeorm");
-let Marketplace = class Marketplace {
-};
+class Marketplace {
+}
 exports.Marketplace = Marketplace;
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)("uuid"),
+    (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", String)
 ], Marketplace.prototype, "id", void 0);
 __decorate([
@@ -27,10 +27,7 @@ __decorate([
     __metadata("design:type", String)
 ], Marketplace.prototype, "description", void 0);
 __decorate([
-    (0, typeorm_1.Column)("numeric"),
+    (0, typeorm_1.Column)(),
     __metadata("design:type", Number)
 ], Marketplace.prototype, "price", void 0);
-exports.Marketplace = Marketplace = __decorate([
-    (0, typeorm_1.Entity)()
-], Marketplace);
 //# sourceMappingURL=marketplace.entity.js.map

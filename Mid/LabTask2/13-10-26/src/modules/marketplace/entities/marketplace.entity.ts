@@ -1,16 +1,15 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
 export class Marketplace {
-    @PrimaryGeneratedColumn("uuid")
-    id!: string;
+    @PrimaryGeneratedColumn()
+    id!:string;
 
     @Column()
-    title!: string;
+    title!:string;
 
     @Column()
-    description!: string;
+    description!:string;
 
-    @Column("numeric")
-    price!: number;
+    @Column()
+    price!:number;
 }
