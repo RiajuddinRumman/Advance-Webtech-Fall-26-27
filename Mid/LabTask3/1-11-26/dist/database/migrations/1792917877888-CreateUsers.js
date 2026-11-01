@@ -1,31 +1,74 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateUsers1792917877888 = void 0;
+const typeorm_1 = require("typeorm");
 class CreateUsers1792917877888 {
     constructor() {
         this.name = "CreateUsers1792917877888";
     }
     async up(queryRunner) {
         await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "pgcrypto"`);
-        await queryRunner.query(`
-      CREATE TABLE "users" (
-        "id" uuid NOT NULL DEFAULT gen_random_uuid(),
-        "full_name" character varying NOT NULL,
-        "email" character varying NOT NULL,
-        "password" character varying NOT NULL,
-        "age" integer NOT NULL,
-        "phone" character varying(11) NOT NULL,
-        "account_type" character varying NOT NULL,
-        "address" character varying,
-        "created_at" TIMESTAMP NOT NULL DEFAULT now(),
-        "updated_at" TIMESTAMP NOT NULL DEFAULT now(),
-        CONSTRAINT "UQ_users_email" UNIQUE ("email"),
-        CONSTRAINT "PK_users_id" PRIMARY KEY ("id")
-      )
-    `);
+        await queryRunner.createTable(new typeorm_1.Table({
+            name: "users",
+            columns: [
+                {
+                    name: "id",
+                    type: "uuid",
+                    isPrimary: true,
+                    default: "gen_random_uuid()",
+                },
+                {
+                    name: "full_name",
+                    type: "varchar",
+                    isNullable: false,
+                },
+                {
+                    name: "email",
+                    type: "varchar",
+                    isNullable: false,
+                    isUnique: true,
+                },
+                {
+                    name: "password",
+                    type: "varchar",
+                    isNullable: false,
+                },
+                {
+                    name: "age",
+                    type: "int",
+                    isNullable: false,
+                },
+                {
+                    name: "phone",
+                    type: "varchar",
+                    length: "11",
+                    isNullable: false,
+                },
+                {
+                    name: "account_type",
+                    type: "varchar",
+                    isNullable: false,
+                },
+                {
+                    name: "address",
+                    type: "varchar",
+                    isNullable: true,
+                },
+                {
+                    name: "created_at",
+                    type: "timestamp",
+                    default: "now()",
+                },
+                {
+                    name: "updated_at",
+                    type: "timestamp",
+                    default: "now()",
+                },
+            ],
+        }));
     }
     async down(queryRunner) {
-        await queryRunner.query(`DROP TABLE "users"`);
+        await queryRunner.dropTable("users");
     }
 }
 exports.CreateUsers1792917877888 = CreateUsers1792917877888;
